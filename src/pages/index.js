@@ -71,7 +71,7 @@ function HeroHeader() {
             <div className={styles.statLabel}>simulation runs that stacked all three cubes in Gazebo</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>20 weeks</div>
+            <div className={styles.statNumber}>Sep 2025 – Jan 2026</div>
             <div className={styles.statLabel}>practical semester at NanoSen GmbH, Chemnitz</div>
           </div>
         </div>
@@ -213,7 +213,7 @@ function ExperienceSection() {
                 NanoSen GmbH, Chemnitz
               </div>
             </div>
-            <span style={muted}>2025 – Jan 2026 · 20 weeks</span>
+            <span style={muted}>Sep 2025 – Jan 2026 · full-time</span>
           </div>
 
           <p style={{ ...text, marginBottom: '12px' }}>
@@ -228,12 +228,15 @@ function ExperienceSection() {
               (Delaunay triangulation).
             </li>
             <li>
-              Data read over serial/UART and I2C from ESP32-S3 boards (Seeed XIAO); sampling at 30 Hz,
-              screen updates at 10 Hz.
+              Data from ESP32-S3 boards (Seeed XIAO) over serial/UART or Wi-Fi (UDP), with I2C between
+              the boards; sampling at 30 Hz, screen updates at 10 Hz.
             </li>
             <li>Sensor calibration with a five-parameter logistic (5PL) curve fit.</li>
             <li>Built an insole prototype by hand, including sensor placement and soldering.</li>
           </ul>
+          <p style={{ ...muted, marginBottom: '16px' }}>
+            Internship certificate: tasks completed &quot;mit gutem Erfolg&quot;, work done independently and on time.
+          </p>
           <Tags items={['Python', 'Tkinter', 'Matplotlib', 'SciPy', 'ESP32', 'I2C / UART']} />
         </div>
 
