@@ -246,7 +246,7 @@ function ExperienceSection() {
               <strong>Peer mentor</strong>, Otto Benecke Stiftung, since July 2024.
             </li>
             <li style={{ marginBottom: '8px' }}>
-              <strong>Student job</strong>, Jobvally Kleve, 2021 – 2024: logistics, production and office
+              <strong>Student job</strong>, Jobvalley Kleve, 2021 – 2024: logistics, production and office
               work.
             </li>
             <li>
