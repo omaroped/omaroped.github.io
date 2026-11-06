@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
 import styles from './index.module.css';
 
 // Every statement on this page is backed by the thesis, the NanoSen
@@ -228,7 +229,7 @@ function ExperienceSection() {
               (Delaunay triangulation).
             </li>
             <li>
-              Data from ESP32-S3 boards (Seeed XIAO) over serial/UART or Wi-Fi (UDP), with I2C between
+              Data from ESP32-S3 boards (Seeed XIAO) over serial/UART or Wi-Fi, with I2C between
               the boards; sampling at 30 Hz, screen updates at 10 Hz.
             </li>
             <li>Sensor calibration with a five-parameter logistic (5PL) curve fit.</li>
@@ -237,7 +238,12 @@ function ExperienceSection() {
           <p style={{ ...muted, marginBottom: '16px' }}>
             Internship certificate: tasks completed &quot;mit gutem Erfolg&quot;, work done independently and on time.
           </p>
-          <Tags items={['Python', 'Tkinter', 'Matplotlib', 'SciPy', 'ESP32', 'I2C / UART']} />
+          <Tags items={['Python', 'Tkinter', 'Matplotlib', 'SciPy', 'C / ESP-IDF', 'ESP32', 'I2C / UART']} />
+          <div style={{ marginTop: '20px' }}>
+            <Link className={styles.primaryBtn} to="/nanosen">
+              See the full project
+            </Link>
+          </div>
         </div>
 
         <div className={styles.card}>
