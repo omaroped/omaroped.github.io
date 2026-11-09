@@ -4,7 +4,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Omar Alobaid',
-  tagline: 'Mechatronic Systems Engineering student, HSRW',
+  tagline: 'M.Sc. student, Automation, Robotics and Control, TU Chemnitz',
   favicon: 'img/favicon.ico',
 
   future: {

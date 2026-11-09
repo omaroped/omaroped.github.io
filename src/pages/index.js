@@ -43,9 +43,9 @@ function HeroHeader() {
       <div className={styles.heroContent}>
         <h1 className={styles.heroTitle}>Omar Alobaid</h1>
         <p className={styles.heroSubtitle}>
-          Final-year Mechatronic Systems Engineering student (B.Sc.) at Hochschule Rhein-Waal, Kleve.
-          Bachelor thesis on mobile pick-and-place with ROS 2; practical semester building
-          sensor-visualisation software in Python at NanoSen GmbH.
+          M.Sc. student in Automation, Robotics and Control at TU Chemnitz. B.Sc. in Mechatronic Systems
+          Engineering from Hochschule Rhein-Waal, Kleve, with a thesis on mobile pick-and-place with ROS 2;
+          practical semester building sensor software and hardware at NanoSen GmbH.
         </p>
 
         <div className={styles.heroActions}>
@@ -351,8 +351,8 @@ function ContactSection() {
 export default function Home() {
   return (
     <Layout
-      title="Omar Alobaid | Mechatronic Systems Engineering"
-      description="Omar Alobaid: B.Sc. thesis on mobile pick-and-place with ROS 2 (LIMO + myCobot), practical semester at NanoSen GmbH."
+      title="Robotics and Embedded Systems"
+      description="Omar Alobaid: M.Sc. student in Automation, Robotics and Control at TU Chemnitz. B.Sc. thesis on mobile pick-and-place with ROS 2 (LIMO + myCobot), practical semester at NanoSen GmbH."
     >
       <HeroHeader />
       <main>
