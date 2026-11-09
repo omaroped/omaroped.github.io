@@ -50,7 +50,7 @@ const config = {
       navbar: {
         title: 'Omar Alobaid',
         items: [
-          {href: '/#thesis', label: 'Thesis', position: 'left'},
+          {to: '/nanosen', label: 'NanoSen', position: 'left'},
           {href: '/#experience', label: 'Experience', position: 'left'},
           {href: '/#skills', label: 'Skills', position: 'left'},
           {href: '/#contact', label: 'Contact', position: 'left'},

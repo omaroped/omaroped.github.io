@@ -3,17 +3,11 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import styles from './index.module.css';
 
-// Every statement on this page is backed by the thesis, the NanoSen
+// Every statement on this page is backed by the NanoSen
 // internship report or the CV in ../../../documents. Keep it that way.
 
 const text = { color: '#cbd5e1', lineHeight: '1.7', fontSize: '1rem' };
 const muted = { color: '#94a3b8', fontSize: '0.92rem' };
-const box = {
-  background: 'rgba(2, 6, 23, 0.5)',
-  padding: '16px',
-  borderRadius: '10px',
-  border: '1px solid rgba(255, 255, 255, 0.05)',
-};
 
 function SectionHeader({ pill, title, desc }) {
   return (
@@ -43,15 +37,15 @@ function HeroHeader() {
       <div className={styles.heroContent}>
         <h1 className={styles.heroTitle}>Omar Alobaid</h1>
         <p className={styles.heroSubtitle}>
-          M.Sc. student in Automation, Robotics and Control at TU Chemnitz. B.Sc. in Mechatronic Systems
-          Engineering from Hochschule Rhein-Waal, Kleve, with a thesis on mobile pick-and-place with ROS 2;
-          practical semester building sensor software and hardware at NanoSen GmbH.
+          M.Sc. student in Automation, Robotics and Control at TU Chemnitz, with a B.Sc. in Mechatronic
+          Systems Engineering from Hochschule Rhein-Waal, Kleve. Practical semester at NanoSen GmbH: a
+          wireless insole prototype, ESP32 firmware in C and a Python app for live pressure data.
         </p>
 
         <div className={styles.heroActions}>
-          <a className={styles.primaryBtn} href="#thesis">
-            Bachelor thesis
-          </a>
+          <Link className={styles.primaryBtn} to="/nanosen">
+            NanoSen project
+          </Link>
           <a className={styles.secondaryBtn} href="#experience">
             Experience
           </a>
@@ -62,14 +56,12 @@ function HeroHeader() {
 
         <div className={styles.statsGrid}>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>11 / 18</div>
-            <div className={styles.statLabel}>
-              real-robot missions that stacked all three cubes (7 of the last 10, after fixes)
-            </div>
+            <div className={styles.statNumber}>10× faster heatmap</div>
+            <div className={styles.statLabel}>live pressure view, about 50 ms down to about 5 ms per frame</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>29 / 30</div>
-            <div className={styles.statLabel}>simulation runs that stacked all three cubes in Gazebo</div>
+            <div className={styles.statNumber}>C and Python</div>
+            <div className={styles.statLabel}>ESP32 firmware on ESP-IDF and a desktop app for the sensor data</div>
           </div>
           <div className={styles.statCard}>
             <div className={styles.statNumber}>Sep 2025 – Jan 2026</div>
@@ -78,114 +70,6 @@ function HeroHeader() {
         </div>
       </div>
     </header>
-  );
-}
-
-function ThesisSection() {
-  return (
-    <section id="thesis" className={styles.sectionAlt}>
-      <div className="container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
-        <SectionHeader
-          pill="Bachelor thesis · submitted October 2026"
-          title="Autonomous Mobile Manipulation: Pick-and-Place and Object Stacking on the LIMO Cobot"
-          desc="Hochschule Rhein-Waal, Faculty of Technology and Bionics. Supervisors: Prof. Dr. Ronny Hartanto, Thomas Grunenberg, M.Sc."
-        />
-
-        <div className={styles.card} style={{ marginBottom: '24px' }}>
-          <p style={{ ...text, marginBottom: '16px' }}>
-            A myCobot 280 M5 arm is mounted on an AgileX LIMO PRO mobile base. In each mission the robot
-            drives to a table, finds a small cube, picks it up, drives to a second table and stacks it,
-            three cubes in total. I built the same pipeline in Gazebo simulation and on the real robot
-            and compared the two.
-          </p>
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-              gap: '16px',
-              marginBottom: '24px',
-            }}
-          >
-            <div style={box}>
-              <div style={{ fontWeight: 600, color: '#38bdf8', marginBottom: '6px' }}>Navigation</div>
-              <div style={muted}>
-                Nav2 brings the base to each table. Laser scans are used to dock against the table; the
-                last 0.30 m are driven on wheel odometry.
-              </div>
-            </div>
-            <div style={box}>
-              <div style={{ fontWeight: 600, color: '#38bdf8', marginBottom: '6px' }}>Perception</div>
-              <div style={muted}>
-                The depth camera with a colour filter locates the cube and gives its position relative to
-                the arm.
-              </div>
-            </div>
-            <div style={box}>
-              <div style={{ fontWeight: 600, color: '#38bdf8', marginBottom: '6px' }}>Manipulation</div>
-              <div style={muted}>
-                MoveIt 2 plans the grasp and place motions. The arm reaches about 0.24 m, which limits
-                where the base has to stop.
-              </div>
-            </div>
-          </div>
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-              gap: '16px',
-              marginBottom: '24px',
-            }}
-          >
-            <figure style={{ margin: 0 }}>
-              <img
-                src="/img/limo-side.jpg"
-                alt="LIMO PRO with myCobot 280 arm next to the cube table in the lab"
-                style={{ width: '100%', borderRadius: '10px' }}
-              />
-              <figcaption style={{ ...muted, marginTop: '6px' }}>The robot in the HSRW lab.</figcaption>
-            </figure>
-            <figure style={{ margin: 0 }}>
-              <img
-                src="/img/limo-stacking.jpg"
-                alt="myCobot arm placing a cube on the stacking table"
-                style={{ width: '100%', borderRadius: '10px' }}
-              />
-              <figcaption style={{ ...muted, marginTop: '6px' }}>Placing a cube during a real-robot test.</figcaption>
-            </figure>
-          </div>
-
-          <h3 style={{ fontSize: '1.15rem', color: '#f8fafc', fontWeight: 600 }}>Results</h3>
-          <ul style={{ ...text, paddingLeft: '20px' }}>
-            <li>
-              <strong>Simulation:</strong> 29 of 30 runs stacked all three cubes (20/20 in the main batch,
-              9/10 with AMCL localisation). Each cube landed within 8.5 mm of the one below.
-            </li>
-            <li>
-              <strong>Real robot:</strong> 11 of 18 missions stacked all three cubes. Only 4 of the first 8
-              worked; after fixing the problems found there, 7 of the last 10 succeeded (28 of 30 cubes
-              placed).
-            </li>
-            <li>
-              Every grasp that was attempted held (60/60 in simulation, 50/50 on the robot). Most
-              failures came from the arm's reach at the third stack level.
-            </li>
-          </ul>
-
-          <h3 style={{ fontSize: '1.15rem', color: '#f8fafc', fontWeight: 600, marginTop: '16px' }}>
-            What I learned
-          </h3>
-          <p style={{ ...text, marginBottom: '20px' }}>
-            Near-perfect results in simulation did not carry over directly to the real robot. Position
-            errors from the base, small offsets in the camera and the limited reach of a small arm only
-            showed up on hardware, and most of the work went into finding and fixing them.
-          </p>
-
-          <Tags items={['ROS 2 Humble', 'Nav2', 'MoveIt 2', 'Gazebo', 'Python', 'AgileX LIMO PRO', 'myCobot 280 M5']} />
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -352,11 +236,10 @@ export default function Home() {
   return (
     <Layout
       title="Robotics and Embedded Systems"
-      description="Omar Alobaid: M.Sc. student in Automation, Robotics and Control at TU Chemnitz. B.Sc. thesis on mobile pick-and-place with ROS 2 (LIMO + myCobot), practical semester at NanoSen GmbH."
+      description="Omar Alobaid: M.Sc. student in Automation, Robotics and Control at TU Chemnitz. Practical semester at NanoSen GmbH: wireless insole prototype, ESP32 firmware in C, Python app."
     >
       <HeroHeader />
       <main>
-        <ThesisSection />
         <ExperienceSection />
         <ProjectsSection />
         <SkillsSection />
