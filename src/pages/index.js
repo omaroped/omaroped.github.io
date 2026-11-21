@@ -222,10 +222,6 @@ function ProjectsSection() {
       title: 'Timer and data logger (university lab)',
       desc: 'Microcontroller project with 7-segment displays driven over I2C and a logger that stores measurements.',
     },
-    {
-      title: 'Control systems group project (2024)',
-      desc: 'Team of four students: designed and implemented a control system and integrated the components.',
-    },
   ];
 
   return (
