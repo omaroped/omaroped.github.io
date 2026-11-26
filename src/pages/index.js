@@ -1,7 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './index.module.css';
 
 // Every statement on this page is backed by the NanoSen
@@ -39,18 +38,17 @@ function HeroHeader() {
         <h1 className={styles.heroTitle}>Omar Alobaid</h1>
         <p className={styles.heroSubtitle}>
           M.Sc. student in Automation, Robotics and Control at TU Chemnitz, with a B.Sc. in Mechatronic
-          Systems Engineering from Hochschule Rhein-Waal, Kleve. I build robots and embedded systems and
-          then measure whether they actually work: an autonomous mobile manipulator in ROS 2 for my
-          bachelor thesis, and a wireless sensing prototype with its own firmware and desktop app at NanoSen.
+          Systems Engineering from Hochschule Rhein-Waal, Kleve. Practical semester at NanoSen GmbH: a
+          wireless insole prototype, ESP32 firmware in C and a Python app for live pressure data.
         </p>
 
         <div className={styles.heroActions}>
-          <Link className={styles.primaryBtn} to="/thesis">
-            Bachelor thesis
-          </Link>
-          <Link className={styles.secondaryBtn} to="/nanosen">
+          <Link className={styles.primaryBtn} to="/nanosen">
             NanoSen project
           </Link>
+          <a className={styles.secondaryBtn} href="#experience">
+            Experience
+          </a>
           <a className={styles.secondaryBtn} href="#contact">
             Contact
           </a>
@@ -58,16 +56,16 @@ function HeroHeader() {
 
         <div className={styles.statsGrid}>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>ROS 2 robot</div>
-            <div className={styles.statLabel}>navigation, perception and MoveIt 2, on a real mobile manipulator</div>
+            <div className={styles.statNumber}>10× faster heatmap</div>
+            <div className={styles.statLabel}>live pressure view, about 50 ms down to about 5 ms per frame</div>
           </div>
           <div className={styles.statCard}>
             <div className={styles.statNumber}>C and Python</div>
-            <div className={styles.statLabel}>ESP32 firmware on ESP-IDF and a desktop app for live sensor data</div>
+            <div className={styles.statLabel}>ESP32 firmware on ESP-IDF and a desktop app for the sensor data</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>Sim to real</div>
-            <div className={styles.statLabel}>Gazebo, then the physical robot, measured stage by stage</div>
+            <div className={styles.statNumber}>Sep 2025 – Jan 2026</div>
+            <div className={styles.statLabel}>practical semester at NanoSen GmbH, Chemnitz</div>
           </div>
         </div>
       </div>
@@ -75,69 +73,9 @@ function HeroHeader() {
   );
 }
 
-function ThesisSection() {
-  const img = useBaseUrl('/img/thesis/carry.jpg');
-  return (
-    <section id="thesis" className={styles.section}>
-      <div className="container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
-        <SectionHeader
-          pill="Bachelor thesis"
-          title="Autonomous mobile manipulation"
-          desc="Hochschule Rhein-Waal, submitted October 2026. A mobile robot that picks up cubes and stacks them on a second table, on its own."
-        />
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '24px',
-            alignItems: 'center',
-          }}
-        >
-          <div className={styles.card}>
-            <p style={{ ...text, marginTop: 0 }}>
-              An AgileX LIMO PRO base with a myCobot 280 arm drives to a table, finds a cube with its depth
-              camera, picks it up, carries it to a second table and stacks it &mdash; three times, with nobody
-              in the loop. I built the pipeline in ROS 2 with Nav2 and MoveIt 2, evaluated it in Gazebo, then
-              moved it onto the real robot.
-            </p>
-            <p style={{ ...text, marginBottom: '16px' }}>
-              The camera sees nothing closer than 0.30 m and the arm reaches only 0.24 m, so the robot can never
-              watch the cube while it grasps it. That one measurement shaped the whole design.
-            </p>
-            <ul style={{ ...muted, paddingLeft: '20px', marginBottom: '20px', lineHeight: '1.8' }}>
-              <li>20 of 20 simulation runs stacked all three cubes, none more than 8.5 mm off.</li>
-              <li>7 of the last 10 real missions built a full stack in one start.</li>
-              <li>Every grasp attempted held: 50 of 50 on the real robot.</li>
-            </ul>
-            <Tags items={['ROS 2 Humble', 'Nav2', 'MoveIt 2', 'Gazebo', 'OpenCV', 'AprilTag', 'Python']} />
-            <div style={{ marginTop: '20px' }}>
-              <Link className={styles.primaryBtn} to="/thesis">
-                See the full project
-              </Link>
-            </div>
-          </div>
-          <Link to="/thesis" style={{ display: 'block' }}>
-            <img
-              src={img}
-              alt="The LIMO PRO robot driving between the tables with a cube held in the myCobot 280 gripper"
-              loading="lazy"
-              style={{
-                width: '100%',
-                borderRadius: '12px',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                display: 'block',
-              }}
-            />
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function ExperienceSection() {
   return (
-    <section id="experience" className={styles.sectionAlt}>
+    <section id="experience" className={styles.section}>
       <div className="container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
         <SectionHeader pill="Experience" title="Work and practical experience" />
 
@@ -225,13 +163,9 @@ function ProjectsSection() {
   ];
 
   return (
-    <section id="projects" className={styles.section}>
+    <section className={styles.sectionAlt}>
       <div className="container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
-        <SectionHeader
-          pill="Projects"
-          title="Smaller university projects"
-          desc="Short course and lab projects alongside the two above. Happy to go into detail on any of them."
-        />
+        <SectionHeader pill="Projects" title="Smaller university projects" />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px' }}>
           {projects.map((p) => (
             <div key={p.title} className={styles.card} style={{ padding: '20px' }}>
@@ -254,7 +188,7 @@ function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className={styles.sectionAlt}>
+    <section id="skills" className={styles.section}>
       <div className="container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
         <SectionHeader pill="Skills" title="Tools I have used in projects" />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
@@ -274,7 +208,7 @@ function SkillsSection() {
 
 function ContactSection() {
   return (
-    <section id="contact" className={styles.section}>
+    <section id="contact" className={styles.sectionAlt}>
       <div className="container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
         <SectionHeader pill="Contact" title="Get in touch" desc="Based in Kleve, Germany. CV and certificates on request." />
         <div className={styles.card} style={{ ...text }}>
@@ -302,7 +236,6 @@ export default function Home() {
     >
       <HeroHeader />
       <main>
-        <ThesisSection />
         <ExperienceSection />
         <ProjectsSection />
         <SkillsSection />
